@@ -9,15 +9,15 @@
 
 ## Dataset Setting
 ```
-chosen_dataset = 7 # load_dataset_DS.py contains the the correspondence between dataset and number, please check
+chosen_dataset = 7 # load_dataset_DS.py contains the correspondence between dataset and number, please check
 sub_sample = 2  # '>2' for real 3D Datasets, '1' for 2D toy datasets
 nb_trajectories = 4  # Only for real 3D data
 ```
-## Plugging your own clustering result / algorithm
+## Plugging your own clustering result/algorithm
 ```
-# Get Mu, Prior and Sigma
+# Get Mu, Prior, and Sigma
 est_options = construct_est_option(Data)
-Priors, Mu, Sigma, est_labels = fig_gmm(Data[:Data_dim], Data[Data_dim:], est_options)
+Priors, Mu, Sigma, est_labels = fit_gmm(Data[:Data_dim], Data[Data_dim:], est_options)
 ```
 You could change this block of code to any code that could produce Prior, Mu, Sigma with shape Priors (1xK) Mu(K x dim) Sigma (K x dim x dim), where K is the number of cluster
 
