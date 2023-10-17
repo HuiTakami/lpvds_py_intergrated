@@ -21,7 +21,7 @@ from utils_ds.plotting_tool.VisualizeEstimatedDS import VisualizeEstimatedDS
 from utils_ds.plotting_tool.plot_lyapunov_and_derivatives import plot_lyapunov_and_derivatives
 
 # from phys_gmm_python
-from phys_gmm_python.fit_gmm import fig_gmm
+from phys_gmm_python.fit_gmm import fit_gmm
 from phys_gmm_python.utils.construct_est_option import construct_est_option
 
 # Load Corresponding Data
@@ -40,7 +40,7 @@ plot_reference_trajectories_DS(Data, att, vel_samples, vel_size)
 
 # Get Mu, Prior and Sigma
 est_options = construct_est_option(Data)
-Priors, Mu, Sigma, est_labels = fig_gmm(Data[:Data_dim], Data[Data_dim:], est_options)
+Priors, Mu, Sigma, est_labels = fit_gmm(Data[:Data_dim], Data[Data_dim:], est_options)
 
 # re-arrange the data
 ds_struct = rearrange_clusters(Priors, Mu, Sigma, att)
