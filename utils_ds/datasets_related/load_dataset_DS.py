@@ -2,6 +2,7 @@ from scipy.io import loadmat
 import pyLasaDataset as lasa
 import numpy as np
 from utils_ds.datasets_related.processDataStructure import processDataStructure
+import os
 
 
 def load_dataset_DS(pkg_dir, dataset, sub_sample, nb_trajectories):
@@ -39,7 +40,7 @@ def load_dataset_DS(pkg_dir, dataset, sub_sample, nb_trajectories):
     if not sub_sample:
         sub_sample = 2
 
-    final_dir = pkg_dir + "/datasets/" + dataset_name
+    final_dir = os.path.join(pkg_dir, "datasets", dataset_name)
 
     if dataset ==0:
         sub_sample = 10
